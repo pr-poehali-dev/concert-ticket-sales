@@ -118,10 +118,13 @@ const config = {
   plugins: [
     animatePlugin,
     typographyPlugin,
-    function ({ addUtilities }: { addUtilities: Function }) {
+    function ({ addUtilities }) {
       const newUtilities = {
         ".hover-scale": {
-          "@apply": "transition-transform duration-200 hover:scale-105",
+          transition: "transform 0.2s ease",
+          "&:hover": {
+            transform: "scale(1.05)",
+          },
         },
       };
       addUtilities(newUtilities);
